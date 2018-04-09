@@ -1,0 +1,16 @@
+
+$color-r:red;
+
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#root{
+    height: 100px;
+    max-width: 200px;
+    background: #eeeeee;
+    .home{
+        color: $color-r;
+    }
+}

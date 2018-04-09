@@ -1,14 +1,17 @@
-const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+var entryConfig = require('./getConfig').entryConfig()
+var htmlOptions = require('./getConfig').htmlOptions
+var htmlPaths = require('./getConfig').htmlPaths
 
 module.exports = {
 
-    entry: __dirname + "/app/main.jsx",  //唯一入口文件
+    entry: entryConfig,  //唯一入口文件
     output: {
         path: __dirname + "/build",  //打包后的文件存放的地方
-        filename: "bundle.js"  //打包后输出文件的文件名
+        filename: "js/[name].js"  //打包后输出文件的文件名
     },
 
     devtool: 'eval-source-map',  //生成Source Maps（使调试更容易）
@@ -34,7 +37,7 @@ module.exports = {
             },
             //sass处理
             {
-                test: /\.scss$/,
+                test: /(\.css|\.scss)$/,
                 loader: "style-loader!css-loader!sass-loader",
                 exclude: /node_modules/
             }
@@ -42,9 +45,12 @@ module.exports = {
     },
     //插件
     plugins: [
-        new HtmlWebpackPlugin({   //依据一个简单的index.html模板，生成一个自动引用你打包后的JS文件的新index.html
-            template: __dirname + "/app/index.html"
-        }),
-        new webpack.HotModuleReplacementPlugin()
-    ]
+        new webpack.HotModuleReplacementPlugin(),          //修改后自动刷新
+        new ExtractTextPlugin("css/[name].css"),           //分离css和js文件
+        new HtmlWebpackPlugin({                            //依据模版生成新的html
+            template: __dirname + "/app/index.html",
+            inject: false,
+            links: htmlPaths
+        })
+    ].concat(htmlOptions)
 };

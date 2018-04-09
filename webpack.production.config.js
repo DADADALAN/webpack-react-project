@@ -1,17 +1,21 @@
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+
+var entryConfig = require('./getConfig').entryConfig()
+var htmlOptions = require('./getConfig').htmlOptions
+
 
 module.exports = {
-    entry: __dirname + "/app/main.jsx", //已多次提及的唯一入口文件
+    entry: entryConfig,           //唯一入口文件
     output: {
         path: __dirname + "/build",
-        filename: "bundle.js"
+        filename: "js/[name].js"
     },
     devtool: 'eval-source-map',
     devServer: {
-        contentBase: "./build", //本地服务器所加载的页面所在的目录
-        historyApiFallback: true, //不跳转
+        contentBase: "./build",     //本地服务器所加载的页面所在的目录
+        historyApiFallback: true,   //不跳转
         inline: true,
         hot: true
     },
@@ -25,7 +29,7 @@ module.exports = {
         },
         //sass处理
         {
-            test: /\.scss$/,
+            test: /(\.css|\.scss)$/,
             loader: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: ['css-loader', 'sass-loader']
@@ -34,14 +38,19 @@ module.exports = {
         }]
     },
     plugins: [
+        new CleanWebpackPlugin(
+            ["build"],                  //匹配删除文件
+            {
+                root: __dirname,       　　　　　　　　　　//根目录
+                verbose:  true,        　　　　　　　　　　//开启在控制台输出信息
+                dry:      false        　　　　　　　　　　//启用删除文件
+            }
+        ),
         new webpack.BannerPlugin('版权所有，翻版必究'),
-        new HtmlWebpackPlugin({
-            template: __dirname + "/app/index.html" //new 一个这个插件的实例，并传入相关的参数
-        }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             beautify: true
         }),
-        new ExtractTextPlugin("style.css")
-    ],
+        new ExtractTextPlugin("css/[name].css")
+    ].concat(htmlOptions)
 };
