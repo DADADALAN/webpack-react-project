@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
 
@@ -31,21 +32,10 @@ module.exports = {
                 ],
                 exclude: /node_modules/  //include/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）
             },
-            //css处理
+            //sass处理
             {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: "style-loader"
-                    }, {
-                        loader: "css-loader",
-                        options: {
-                            modules: true  //类名只作用于当前模块
-                        }
-                    }, {
-                        loader: "postcss-loader"
-                    }
-                ],
+                test: /\.scss$/,
+                loader: "style-loader!css-loader!sass-loader",
                 exclude: /node_modules/
             }
         ]
@@ -55,20 +45,6 @@ module.exports = {
         new HtmlWebpackPlugin({   //依据一个简单的index.html模板，生成一个自动引用你打包后的JS文件的新index.html
             template: __dirname + "/app/index.html"
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         properties: false,
-        //         warnings: false
-        //     },
-        //     output: {
-        //         beautify: true,
-        //         quote_keys: true
-        //     },
-        //     mangle: {
-        //         screw_ie8: false
-        //     },
-        //     sourceMap: false
-        // })
+        new webpack.HotModuleReplacementPlugin()
     ]
 };
