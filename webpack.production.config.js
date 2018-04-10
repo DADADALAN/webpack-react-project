@@ -42,8 +42,8 @@ module.exports = {
             ["build"],                  //匹配删除文件
             {
                 root: __dirname,       　　　　　　　　　　//根目录
-                verbose:  true,        　　　　　　　　　　//开启在控制台输出信息
-                dry:      false        　　　　　　　　　　//启用删除文件
+                verbose: true,        　　　　　　　　　　//开启在控制台输出信息
+                dry: false        　　　　　　　　　　//启用删除文件
             }
         ),
         new webpack.BannerPlugin('版权所有，翻版必究'),
