@@ -38,7 +38,10 @@ module.exports = {
             //sass处理
             {
                 test: /(\.css|\.scss)$/,
-                loader: "style-loader!css-loader!sass-loader",
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
+                }),
                 exclude: /node_modules/
             }
         ]

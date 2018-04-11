@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+// const ImageminPlugin = require('imagemin-webpack-plugin')
 
 var entryConfig = require('./getConfig').entryConfig()
 var htmlOptions = require('./getConfig').htmlOptions
@@ -32,8 +33,15 @@ module.exports = {
             test: /(\.css|\.scss)$/,
             loader: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader']
-              }),
+                use: [{
+                    loader:'css-loader',
+                    options: {
+                        minimize: true              //css压缩
+                    }
+                },{
+                    loader:'sass-loader'
+                }]
+            }),
             exclude: /node_modules/
         }]
     },
@@ -49,8 +57,17 @@ module.exports = {
         new webpack.BannerPlugin('版权所有，翻版必究'),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
-            beautify: true
+            beautify: false,                     //紧凑输出
+            comments: false,                    //删除所有注释
+            compress: {
+                warnings: false                 //删除没用到的代码不输出警告
+            }
         }),
-        new ExtractTextPlugin("css/[name].css")
+        new ExtractTextPlugin("css/[name].css"),        //合并css
+        // new ImageminPlugin({
+        //     pngquant: {
+        //         quality: '95-100'
+        //     }
+        // })
     ].concat(htmlOptions)
 };
