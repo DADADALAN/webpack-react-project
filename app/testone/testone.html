@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <% if(process.env.NODE_ENV=="production"){ %>
+    <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks.venders.entry %>"></script>
+    <% } %>
     <link href="<%=htmlWebpackPlugin.files.chunks.testone.css[0] %>" rel="stylesheet">
   </head>
   <body>

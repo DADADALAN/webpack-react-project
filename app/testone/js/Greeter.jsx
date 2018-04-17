@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import imgConfig from '../../config/imgConfig'
 
 export default class Greeter extends Component {
     constructor(obj) {
@@ -14,9 +15,7 @@ export default class Greeter extends Component {
     }
 
     handleOnClick(){
-        let num = "wsddddcfvvc"
-        let reg = /^\d{11}$/
-        console.log(reg.test(num))
+        alert("onclick!")
     }
 
     render() {
@@ -26,6 +25,7 @@ export default class Greeter extends Component {
             <div className="home">
                 <div id="res" onClick={this.handleOnClick.bind(this)}>Click!</div>
                 <p className="title">ONE</p>
+                <img src={imgConfig["i01"]} alt=""/>
             </div>
         )
     }

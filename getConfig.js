@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs')
+const path = require('path');
 
 var files = fs.readdirSync("app")
 
@@ -34,10 +35,21 @@ var htmlOptions = htmlPaths.map((html) => {
     })
 })
 
+//路径处理
+var resolveConfig = {
+    extensions: ['.js', '.json', '.scss', '.jsx'],              //后缀名自动补全
+    alias: {
+        css: path.join(__dirname + "/app/common/css"),
+        img: path.join(__dirname + "/app/common/img"),
+        js: path.join(__dirname + "/app/common/js"),
+    }
+}
+
 
 
 module.exports = {
     entryConfig: entryConfig,
     htmlOptions: htmlOptions,
-    htmlPaths: htmlPaths
+    htmlPaths: htmlPaths,
+    resolveConfig: resolveConfig
 }
