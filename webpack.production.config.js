@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ImageminPlugin = require("imagemin-webpack-plugin").default
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var entryConfig = require('./getConfig').entryConfig()
 var htmlOptions = require('./getConfig').htmlOptions
