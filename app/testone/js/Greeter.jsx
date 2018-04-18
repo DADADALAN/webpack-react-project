@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import imgConfig from '../../config/imgConfig'
+import add from 'js/add'
 
 export default class Greeter extends Component {
     constructor(obj) {
@@ -15,7 +16,8 @@ export default class Greeter extends Component {
     }
 
     handleOnClick(){
-        alert("onclick!")
+        let sum = add(2,4)
+        alert(`2+4=${sum}`)
     }
 
     render() {
