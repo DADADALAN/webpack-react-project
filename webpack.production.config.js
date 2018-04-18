@@ -44,7 +44,9 @@ module.exports = {
                 use: {
                     loader: 'url-loader',
                     options: {
-                        limit: 10000
+                        limit: 8192,
+                        name: "img/[name].[ext]",
+                        publicPath: "../"
                     }
                 },
                 exclude: /node_modules/

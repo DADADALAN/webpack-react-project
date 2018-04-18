@@ -14,7 +14,7 @@ export default class Greeter extends Component {
     }
 
     handleOnClick(){
-        window.location.href = "testtwo.html"  
+        this.props.callback()
     }
 
     render() {
@@ -24,7 +24,7 @@ export default class Greeter extends Component {
 
         return (
             <div className="component">
-                <input type="button" value={value} onClick={this.handleOnClick}/>
+                <input type="button" value={value} onClick={this.handleOnClick.bind(this)}/>
             </div>
         )
     }

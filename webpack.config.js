@@ -47,10 +47,7 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
                 use: {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 10000
-                    }
+                    loader: 'url-loader'
                 },
                 exclude: /node_modules/
             }
