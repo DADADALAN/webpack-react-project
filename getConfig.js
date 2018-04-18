@@ -42,6 +42,7 @@ var resolveConfig = {
         css: path.join(__dirname + "/app/common/css"),
         img: path.join(__dirname + "/app/common/img"),
         js: path.join(__dirname + "/app/common/js"),
+        component: path.join(__dirname + "/app/component")
     }
 }
 
