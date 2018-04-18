@@ -14,7 +14,7 @@ export default class Greeter extends Component {
     }
 
     handleOnClick(){
-        window.location.href = "testtwo.html"
+        window.location.href = "testtwo.html"  
     }
 
     render() {

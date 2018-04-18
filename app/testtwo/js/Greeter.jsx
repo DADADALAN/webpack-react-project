@@ -22,7 +22,7 @@ export default class Greeter extends Component {
 
         return (
             <div className="home">
-                <div id="res" onClick={() => {console.log("success")}}>Click!</div>
+                <div id="res" onClick={() => {console.log("success!")}}>Click!</div>
                 <p className="title">TWO</p>
             </div>
         )

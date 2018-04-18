@@ -30,7 +30,7 @@ module.exports = {
             {
                 test: /(\.jsx|\.js)$/,  //用以匹配loaders所处理文件的拓展名的正则表达式（必须）
                 use:[{
-                    loader: "babel-loader"  //loader的名称（必须）
+                    loader: "babel-loader?cacheDirectory=true"  //loader的名称（必须）
                 }],
                 exclude: /node_modules/  //include/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）
             },
@@ -60,6 +60,7 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),          //修改后自动刷新
         new ExtractTextPlugin("css/[name].css"),           //分离css和js文件
+        new webpack.optimize.CommonsChunkPlugin({ name: 'venders', filename: 'js/venders.js' }),          //合并公共文件
         new HtmlWebpackPlugin({                            //依据模版生成新的html
             template: __dirname + "/app/index.html",
             inject: false,
