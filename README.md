@@ -13,7 +13,7 @@ webpack react 工作流搭建
 5. 图片转base64
 6. 实时刷新
 
-## 目录结构
+## 项目结构
 ```
 webpack-react-project/
 |
@@ -22,6 +22,7 @@ webpack-react-project/
 |   |   |-- img
 |   |   |-- css
 |   |   └-- js
+|   |-- component           //组件
 |   |-- config          //公共配置-图片地址、公共文案...
 |   |-- test...         //页面模块
 |   |   |-- css

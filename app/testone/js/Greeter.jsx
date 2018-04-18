@@ -18,7 +18,7 @@ export default class Greeter extends Component {
 
     handleOnClick(){
         let sum = add(2,4)
-        alert(`2+4=${sum}`)
+        alert(`2 + 4 = ${sum}`)
     }
 
     render() {
@@ -31,6 +31,9 @@ export default class Greeter extends Component {
                 <img src={imgConfig["i01"]} alt=""/>
                 <Button
                     value={"Go"}
+                    callback={() => {
+                        window.location.href = "./testtwo.html"
+                    }}
                 />
             </div>
         )

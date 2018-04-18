@@ -7,8 +7,6 @@ const ReactDOM = require('react-dom');
 const App = require('./Greeter.jsx');
 import '../css/sass.scss'
 
-console.log(App)
-
 ReactDOM.render(
     <App/>,
     document.getElementById('root')
