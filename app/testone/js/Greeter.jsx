@@ -13,7 +13,7 @@ export default class Greeter extends Component {
     }
 
     componentWillMount(){
-        document.title = this.state.title
+        document.title = this.state.title 
     }
 
     handleOnClick(){
