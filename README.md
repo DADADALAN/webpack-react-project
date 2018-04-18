@@ -1,4 +1,5 @@
 # webpack-react-project
+webpack v3.8.1 <br>
 webpack react 工作流搭建
 
 ## Running
