@@ -4,7 +4,7 @@ require('babel-polyfill');
 
 const React = require('react');
 const ReactDOM = require('react-dom');
-const App = require('./Greeter.jsx');
+const App = require('./app.jsx');
 import '../css/sass.scss'
 
 ReactDOM.render(

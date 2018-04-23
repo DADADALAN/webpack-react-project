@@ -6,11 +6,10 @@ var entryConfig = require('./getConfig').entryConfig()
 var htmlOptions = require('./getConfig').htmlOptions
 var resolveConfig = require('./getConfig').resolveConfig
 
-
 module.exports = {
     entry: entryConfig,           //入口文件
     output: {
-        path: __dirname + "/build",
+        path: __dirname + "/build/[hash:10]",
         filename: "js/[name].js"
     },
     module: {
@@ -64,7 +63,7 @@ module.exports = {
             }
         ),
         new webpack.optimize.CommonsChunkPlugin({ name: 'venders', filename: 'js/venders.js' }),          //合并公共文件
-        new webpack.DefinePlugin({
+        new webpack.DefinePlugin({                              //全局环境变量
             'process.env.NODE_ENV': '"production"'
         }),
         new webpack.optimize.OccurrenceOrderPlugin(true),           //排序输出，减小文件大小
