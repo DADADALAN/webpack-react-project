@@ -32,6 +32,7 @@ module.exports = {
                 use:[{
                     loader: "babel-loader?cacheDirectory=true"  //loader的名称（必须）
                 }],
+                include: __dirname + "/app",
                 exclude: /node_modules/  //include/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）
             },
             //sass处理

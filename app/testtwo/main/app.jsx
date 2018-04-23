@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-export default class Greeter extends Component {
+export default class App extends Component {
     constructor(obj) {
         super(obj);
         this.state = {

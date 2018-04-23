@@ -8,8 +8,8 @@ var files = fs.readdirSync("app")
 var entryConfig = function(){
     var outputConfig = {}
     files.forEach((file) => {
-        if(!fs.existsSync("app/" + file + "/js/main.jsx")) return false
-        outputConfig[file] = __dirname + "/app/" + file + "/js/main.jsx"
+        if(!fs.existsSync("app/" + file + "/main/main.jsx")) return false
+        outputConfig[file] = __dirname + "/app/" + file + "/main/main.jsx"
     })
     return outputConfig
 }
@@ -18,7 +18,7 @@ var entryConfig = function(){
 var getHtmlPaths = function(){
     var htmlArr = []
     files.forEach((file) => {
-        if(!fs.existsSync("app/" + file + "/js/main.jsx")) return false
+        if(!fs.existsSync("app/" + file + "/main/main.jsx")) return false
         var html = {}
         html.path = __dirname + "/app/" + file + "/" + file + ".html"
         html.name = file + ".html"
@@ -39,10 +39,9 @@ var htmlOptions = htmlPaths.map((html) => {
 var resolveConfig = {
     extensions: ['.js', '.json', '.scss', '.jsx'],              //后缀名自动补全
     alias: {
-        css: path.join(__dirname + "/app/common/css"),
-        img: path.join(__dirname + "/app/common/img"),
-        js: path.join(__dirname + "/app/common/js"),
-        component: path.join(__dirname + "/app/component")
+        common: path.join(__dirname + "/app/common"),
+        component: path.join(__dirname + "/app/component"),
+        config: path.join(__dirname + "/app/config")
     }
 }
 
