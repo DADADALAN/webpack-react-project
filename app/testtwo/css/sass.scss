@@ -1,9 +1,19 @@
-
-@import './_common.scss';
-
-$color-g:gold;
+@import '../../common/css/common.scss';
 
 
-#res{
-    color: $color-g !important;
+#root{
+    width: 100%;
+}
+
+.app-wrap{
+    height: 100px;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    padding-top: 200px;
+    .title{
+        color: #333;
+        padding: 20px 0;
+        font-size: 34px;
+    }
 }

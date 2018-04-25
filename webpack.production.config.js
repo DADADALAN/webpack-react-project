@@ -53,7 +53,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.BannerPlugin('版权所有，翻版必究'),
+        new webpack.BannerPlugin('Author：dalan'),
         new CleanWebpackPlugin(
             ["build"],                  //匹配删除文件
             {

@@ -5,7 +5,7 @@ export default class App extends Component {
     constructor(obj) {
         super(obj);
         this.state = {
-            title: "webpack工作流"
+            title: "webpack-react"
         }
     }
 
@@ -21,9 +21,8 @@ export default class App extends Component {
         let {title} = this.state
 
         return (
-            <div className="home">
-                <div id="res" onClick={() => {console.log("success!")}}>Click!</div>
-                <p className="title">TWO</p>
+            <div className="app-wrap">
+                <div className="title" onClick={this.handleOnClick.bind(this)}>Just kidding!</div>
             </div>
         )
     }

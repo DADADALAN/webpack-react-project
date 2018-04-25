@@ -11,7 +11,7 @@ export default class App extends Component {
     constructor(obj) {
         super(obj);
         this.state = {
-            title: "webpack工作流",
+            title: "webpack-react",
             userInfo: {},
             info: {}
         }
