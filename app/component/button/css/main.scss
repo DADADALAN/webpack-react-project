@@ -1,0 +1,10 @@
+$color-p:rgb(255, 27, 122);
+
+.component-button{
+    height: 36px;
+    line-height: 36px;
+    width: 120px;
+    margin: auto;
+    background: $color-p;
+    border-radius: 8px;
+}

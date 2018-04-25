@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import './css/main.scss';
 
 export default class Greeter extends Component {
     constructor(obj) {
@@ -23,7 +24,7 @@ export default class Greeter extends Component {
         let value = props.value || ""
 
         return (
-            <div className="component">
+            <div className="component-button">
                 <input type="button" value={value} onClick={this.handleOnClick.bind(this)}/>
             </div>
         )

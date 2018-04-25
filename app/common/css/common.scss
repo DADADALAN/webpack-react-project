@@ -1,5 +1,19 @@
+$color-b:#cdfffb;
+$color-g:gold;
+$color-p:rgb(255, 27, 122);
+$color-r:rgb(173, 0, 0);
+
 body{
     margin: 0;
     padding: 0;
     border: 0;
+    // background: $color-b;
+}
+
+input{
+    border-style: none;
+    border-width: 0;
+    background-color: transparent;
+    font-size: 20px;
+    color: #fff;
 }
