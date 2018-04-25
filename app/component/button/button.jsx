@@ -21,11 +21,11 @@ export default class Greeter extends Component {
     render() {
         let {title} = this.state
         let props = this.props
-        let value = props.value || ""
+        let value = props.value || "Submit"
 
         return (
             <div className="component-button">
-                <input type="button" value={value} onClick={this.handleOnClick.bind(this)}/>
+                <a className="button-submit" onClick={this.handleOnClick.bind(this)}>{value}</a>
             </div>
         )
     }
