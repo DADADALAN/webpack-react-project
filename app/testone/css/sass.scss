@@ -1,16 +1,19 @@
 @import '../../common/css/common.scss';
 
-$color-g:gold;
-$color-r:red;
 
 #root{
-    height: 100px;
-    max-width: 200px;
-    background: url('../../common/img/pic.png') no-repeat;
-    .home{
-        color: $color-r;
-    }
+    width: 100%;
 }
-#res{
-    color: $color-g !important;
+
+.app-wrap{
+    height: 100px;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    padding-top: 200px;
+    .title{
+        color: #333;
+        padding: 20px 0;
+        font-size: 34px;
+    }
 }

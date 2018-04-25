@@ -44,12 +44,12 @@ export default class App extends Component {
 
     render() {
         let { title, userInfo } = this.state
+        console.log(userInfo)
 
         return (
-            <div className="home">
-                <div id="res" onClick={this.handleOnClick.bind(this)}>Click!</div>
-                <p className="title">name:{userInfo.cardName}</p>
+            <div className="app-wrap">
                 <img src={imgConfig["i01"]} alt=""/>
+                <div className="title" onClick={this.handleOnClick.bind(this)}>Are u ready ?</div>
                 <Button
                     value={"Go"}
                     callback={() => {

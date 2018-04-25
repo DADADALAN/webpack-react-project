@@ -1,0 +1,15 @@
+$color-p:rgb(255, 27, 122);
+
+.component-button{
+    display: inline-block;
+    margin: auto;
+    background: $color-p;
+    border-radius: 8px;
+    .button-submit{
+        min-width: 100px;
+        display: inline-block;
+        padding: 8px 24px;
+        color: #fff;
+        font-size: 20px;
+    }
+}
